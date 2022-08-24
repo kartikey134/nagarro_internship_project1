@@ -16,10 +16,7 @@ const socketio = require("socket.io");
 const io = socketio(server);
 const Chat = require('./models/chat')
 
-
-
-
-mongoose.connect('mongodb://localhost:27017/twitter')
+mongoose.connect(process.env.MONGOURL)
 .then(()=>{
     console.log("db connected");
 })
@@ -100,6 +97,6 @@ io.on("connection",(socket)=>{
 
 
 
-server.listen(8080, () => {
+server.listen(process.env.PORT, () => {
   console.log("Server running at port 8080");
 });
