@@ -46,7 +46,7 @@ const { accessSync } = require("fs");
 app.use(
   session({
     secret: 'my name is kartikey',
-    store: MongoStore.create({ mongoUrl: process.env.MONGO_URL }),
+    store: MongoStore.create({ mongoUrl: process.env.MONGOURL }),
     resave: false,
     saveUninitialized: true,
   })
