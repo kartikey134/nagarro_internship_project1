@@ -8,6 +8,7 @@ const LocalStrategy = require("passport-local");
 const User = require("./models/user");
 const flash = require("connect-flash");
 const {isLoggedIn} = require('./middleware')
+require("dotenv").config();
 
 //chatting app
 const http = require('http');
