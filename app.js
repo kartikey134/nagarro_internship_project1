@@ -16,6 +16,8 @@ const socketio = require("socket.io");
 const io = socketio(server);
 const Chat = require('./models/chat')
 
+const MongoStore = require("connect-mongo");
+
 mongoose.connect(process.env.MONGOURL)
 .then(()=>{
     console.log("db connected");
@@ -43,7 +45,8 @@ const { accessSync } = require("fs");
 
 app.use(
   session({
-    secret: "weneedasomebettersecret",
+    secret: 'my name is kartikey',
+    store: MongoStore.create({ mongoUrl: process.env.MONGO_URL }),
     resave: false,
     saveUninitialized: true,
   })
